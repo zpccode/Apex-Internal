@@ -136,12 +136,11 @@ public:
 
 		pImGuiFeatures->CheckBox("Enable Visuals", &visuals::enable_visuals);
 		pImGuiFeatures->CheckBox(skCrypt("Third Person").decrypt(), &visuals::enable_thirdperson);
-		pImGuiFeatures->Spacing1();
-		ImGui::SliderFloat(skCrypt("View Fov").decrypt(), &visuals::view_fov, 75, 180, "%.0f");
-		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->CheckBox(skCrypt("Enable Radar").decrypt(), &visuals::render_radar_option);
 		pImGuiFeatures->CheckBox(skCrypt("Enable Outline").decrypt(), &visuals::enable_outline);
+
+		pImGuiFeatures->CheckBox(skCrypt("FPS Window").decrypt(), &visuals::render_frame_window);
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);
@@ -160,8 +159,10 @@ public:
 		pImGuiFeatures->Spacing1();
 		ImGui::SliderInt(skCrypt("Weapon Skin Id").decrypt(), &visuals::weapon_skin_id, 0, 100, "%.0f");
 
+		ImGui::SliderFloat(skCrypt("View Fov").decrypt(), &visuals::view_fov, 75, 180, "%.0f");
 		pImGuiFeatures->Spacing1();
-		pImGuiFeatures->CheckBox(skCrypt("FPS Window").decrypt(), &visuals::render_frame_window);
+
+		pImGuiFeatures->Spacing1();
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);

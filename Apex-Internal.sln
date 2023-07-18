@@ -5,9 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Apex-Internal", "Apex-Internal\Apex-Internal.vcxproj", "{0D31831C-24CB-444E-B013-61B785CDE6DC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kernel-loader", "..\..\Documents\Projects\external\kernel-loader-main\kernel-loader\kernel-loader.vcxproj", "{148DEF65-AD62-4F78-A2CB-F71657657F61}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kernel-loader", "..\..\external\kernel-loader-main\kernel-loader\kernel-loader.vcxproj", "{148DEF65-AD62-4F78-A2CB-F71657657F61}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EAC Emulation", "..\..\Documents\Projects\kernel\EAC Emulation\EAC Emulation\EAC Emulation.vcxproj", "{F79D30BB-0218-4013-8569-1C0CAA2CB55B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EAC Emulation", "..\..\kernel\EAC Emulation\EAC Emulation\EAC Emulation.vcxproj", "{F79D30BB-0218-4013-8569-1C0CAA2CB55B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +57,7 @@ Global
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|ARM64.Deploy.0 = Release|ARM64
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x64.ActiveCfg = Release|x64
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x64.Build.0 = Release|x64
+		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x64.Deploy.0 = Release|x64
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x86.ActiveCfg = Release|x64
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x86.Build.0 = Release|x64
 		{F79D30BB-0218-4013-8569-1C0CAA2CB55B}.Release|x86.Deploy.0 = Release|x64

@@ -5,10 +5,51 @@
 class VisualFeatures
 {
 public:
-	NTSTATUS WINAPI ThirdPerson(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
+	NTSTATUS WINAPI ThirdPerson(CLocalEntity LocalEntity) 
+	{ 
+		static bool enabled = false;
+		
+		if (visuals::enable_thirdperson)
+		{
+			enabled = true;
+			*(int*)(offsets_modules::module_base + offsets::thirdperson_override) = 1;
+			*(int*)(LocalEntity.Entity + offsets::m_thirdPersonShoulderView) = 1;
+		}
+		else
+		{
+			if (enabled) {
+				enabled = false; *(int*)(offsets_modules::module_base + offsets::thirdperson_override) = 0;
+				*(int*)(LocalEntity.Entity + offsets::m_thirdPersonShoulderView) = 0;
+			}
+		}
+		return STATUS_SUCCESS;
+	}
+	
 	NTSTATUS WINAPI PlayerBox(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
+	
 	NTSTATUS WINAPI PlayerName(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
-	NTSTATUS WINAPI PlayerOutline(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
+	
+	NTSTATUS WINAPI PlayerOutline(CLocalEntity LocalEntity) 
+	{ 
+		if (!visuals::enable_outline)
+			return STATUS_ERROR;
+
+		uintptr_t local_team = LocalEntity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
+		CBaseEntity BaseEntity = CBaseEntity();
+		
+		for (int i = 0; i < 100; i++)
+		{
+			uintptr_t entity_from_index = BaseEntity.GetEntity(i);
+			
+			if (!entity_from_index || entity_from_index == LocalEntity.Entity || !LocalEntity.Entity)
+				continue;
+			
+			BaseEntity.EnableGlow(offsets::glow_type, offsets::glow_color, offsets::glow_enable,
+				255, 255, 255, 255);
+		}
+
+		return STATUS_SUCCESS; 
+	}
 }; VisualFeatures* pVisualFeatures = new VisualFeatures();
 
 class Visuals {

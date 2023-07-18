@@ -58,6 +58,8 @@ extern "C" {namespace spoof_call
 		return SpoofReturn(DefWindowProc, hWindow, uMsg, wParam, lParam);  }
 	LPVOID WINAPI NtCalloc(_In_ size_t base, _In_ size_t address) {
 		return SpoofReturn(__safecall(calloc).get(), base, address); }
+	INT WINAPI NtDbgPrintEx(_In_ LPCSTR Msg) {
+		return SpoofReturn(__safecall(puts).get(), Msg);}
 }}
 
 extern "C" {namespace modules 

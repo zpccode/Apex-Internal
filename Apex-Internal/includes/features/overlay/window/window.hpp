@@ -38,28 +38,24 @@ public:
 	ImFont* VerdanaSmall = nullptr;
 	ImFont* IconFont = nullptr;
 public:
-	ImColor WindowBackground = ImColor(40,38,38,255);
+	ImColor WindowBackground = ImColor(0,0,0,250);
 	
-	ImColor ChildBackground = ImColor(36, 36, 36, 240);
+	ImColor ChildBackground = ImColor(0,0,0, 240);
 	ImColor WindowTitleBar = ImColor(0,0,0,250);
-	ImColor WindowSeparator = ImColor(255,255,255,255);
+	ImColor WindowSeparator = ImColor(68,0,255,255);
 	
-	ImColor WindowBorder = ImColor(255, 255, 255, 255);
-	ImColor WindowButtonActive = ImColor(164, 163, 163, 255);
-	ImColor WindowButtonHovered = ImColor(108, 106, 106, 255);
+	ImColor WindowBorder = ImColor(68, 0, 255, 255);
+	ImColor WindowButtonActive = ImColor(85, 0, 255, 255);
+	ImColor WindowButtonHovered = ImColor(85, 0, 255, 255);
 
-	ImColor WindowSlider = ImColor(255, 255, 255, 255);
-	ImColor WindowSliderGrab = ImColor(164, 163, 163, 255);
+	ImColor WindowSlider = ImColor(68, 0, 255, 255);
+	ImColor WindowSliderGrab = ImColor(85, 0, 255, 255);
 
 	ImColor WindowFrameBackground = ImColor(108, 106, 106, 255);
-	ImColor WindowFrameHover = ImColor(108, 106, 106, 255);
-	ImColor WindowFrameActive = ImColor(108, 106, 106, 255);
-	/*
-	ImVec4 Col_On = ImColor(164, 163, 163, 255).Value;
-    ImVec4 Col_Off = ImColor(108, 106, 106, 255).Value;
-	*/
+	ImColor WindowFrameHover = ImColor(85, 0, 255, 255);
+	ImColor WindowFrameActive = ImColor(85, 0, 255, 255);
 
-	ImColor WindowFrameExtra = ImColor(164, 163, 163, 255);
+	ImColor WindowFrameExtra = ImColor(85, 0, 255, 255);
 public:
 	__forceinline void InitializeStyle()
 	{

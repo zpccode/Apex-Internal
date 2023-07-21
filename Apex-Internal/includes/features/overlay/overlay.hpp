@@ -3,6 +3,10 @@
 #include"window/window.hpp"
 #include"key_helper/key_helper.hpp"
 #include"Tabs/tabs.hpp"
+#include"Image/Image.h"
+#include <D3DX11tex.h>
+#pragma comment(lib, "D3DX11.lib")
+
 static int items = 0;
 
 class Overlay
@@ -33,6 +37,12 @@ public:
 	{
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
+
+		D3DX11_IMAGE_LOAD_INFO info;
+		ID3DX11ThreadPump* pump{ nullptr };
+		D3DX11CreateShaderResourceViewFromMemory(pD3D11->pDevice, rawData, sizeof(rawData), &info,
+			pump, &Image, 0);
+
 		ImGui_ImplWin32_Init(pD3D11->hWindow);
 		ImGui_ImplDX11_Init(pD3D11->pDevice, pD3D11->pContext);
 	}
@@ -82,8 +92,10 @@ public:
 		{
 			static ImVec4 InActive = ImVec4(0.09f, 0.09, 0.09f, 0.88f);
 			static ImVec4 Active = ImVec4(0.0f, 0.5f, 0.5f, 0.9f);
+
+			ImGui::Image((LPVOID)Image, ImVec2(130, 195));
 			
-			pImGuiFeatures->Spacing3();
+			pImGuiFeatures->Spacing1();
 			ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 4.f);
 			pImGuiFeatures->PushFont(pInitStyle->IconFont);
 		
@@ -92,19 +104,16 @@ public:
 				Tab = MenuTabs::Aimbot;
 
 			pImGuiFeatures->Spacing1();
-
 			pImGuiFeatures->PushStyleColor(ImGuiCol_Button, Tab == MenuTabs::Triggerbot ? Active : InActive);
 			if (pImGuiFeatures->Button(this->icon_text(ICON_MD_ZOOM_IN, skCrypt(" Trigger").decrypt()).c_str(), ImVec2(width, height)))
 				Tab = MenuTabs::Triggerbot;
 
 			pImGuiFeatures->Spacing1();
-
 			pImGuiFeatures->PushStyleColor(ImGuiCol_Button, Tab == MenuTabs::Visuals ? Active : InActive);
 			if (pImGuiFeatures->Button(this->icon_text(ICON_MD_BRUSH, skCrypt(" Visuals").decrypt()).c_str(), ImVec2(width, height)))
 				Tab = MenuTabs::Visuals;
 
 			pImGuiFeatures->Spacing1();
-
 			pImGuiFeatures->PushStyleColor(ImGuiCol_Button, Tab == MenuTabs::Misc ? Active : InActive);
 			if (pImGuiFeatures->Button(this->icon_text(ICON_MD_KEYBOARD, skCrypt(" Misc  ").decrypt()).c_str(), ImVec2(width, height)))
 				Tab = MenuTabs::Misc;

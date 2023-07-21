@@ -1,0 +1,105 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(516,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+  imgui_widgets.cpp
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(978,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(978,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(978,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(978,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(983,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(983,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(983,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(983,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(2986,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\ImGui\imgui_widgets.cpp(3020,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  entry.cpp
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(12,1): warning C4005: 'DXGI_STATUS_OCCLUDED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58064,1): message : see previous definition of 'DXGI_STATUS_OCCLUDED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(13,1): warning C4005: 'DXGI_STATUS_CLIPPED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58073,1): message : see previous definition of 'DXGI_STATUS_CLIPPED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(14,1): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58082,1): message : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(15,1): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58091,1): message : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(16,1): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58100,1): message : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(17,1): warning C4005: 'DXGI_STATUS_MODE_CHANGED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58109,1): message : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(18,1): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58118,1): message : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(21,1): warning C4005: 'DXGI_ERROR_INVALID_CALL': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58133,1): message : see previous definition of 'DXGI_ERROR_INVALID_CALL'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(22,1): warning C4005: 'DXGI_ERROR_NOT_FOUND': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58142,1): message : see previous definition of 'DXGI_ERROR_NOT_FOUND'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(23,1): warning C4005: 'DXGI_ERROR_MORE_DATA': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58151,1): message : see previous definition of 'DXGI_ERROR_MORE_DATA'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(24,1): warning C4005: 'DXGI_ERROR_UNSUPPORTED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58160,1): message : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(25,1): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58169,1): message : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(26,1): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58178,1): message : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(27,1): warning C4005: 'DXGI_ERROR_DEVICE_RESET': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58188,1): message : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(28,1): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58197,1): message : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(29,1): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58207,1): message : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(30,1): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58216,1): message : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(31,1): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58226,1): message : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(32,1): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58235,1): message : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(33,1): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58244,1): message : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(34,1): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58254,1): message : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dxgitype.h(35,1): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58263,1): message : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d11.h(917,1): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58569,1): message : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d11.h(918,1): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58578,1): message : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d11.h(919,1): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58588,1): message : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d11.h(920,1): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58597,1): message : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d10.h(608,1): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58545,1): message : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\d3d10.h(609,1): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\winerror.h(58554,1): message : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\modules\modules.hpp(56,22): warning C4002: too many arguments for function-like macro invocation '__safecall'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\window\window.hpp(100,1): warning C4305: 'initializing': truncation from 'int' to 'const ImWchar'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\window\window.hpp(100,48): warning C4309: 'initializing': truncation of constant value
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(119,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(236,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(237,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(239,55): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(240,55): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(275,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\engine\engine.hpp(279,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\utils\scanner\scanner.hpp(23,1): warning C4312: 'type cast': conversion from 'DWORD' to 'BYTE *' of greater size
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\utils\scanner\scanner.hpp(48): warning C4311: 'reinterpret_cast': pointer truncation from 'HINSTANCE' to 'DWORD'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\utils\scanner\scanner.hpp(48): warning C4302: 'reinterpret_cast': truncation from 'HINSTANCE' to 'DWORD'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\utils\scanner\scanner.hpp(49): warning C4312: 'reinterpret_cast': conversion from 'const DWORD' to 'PIMAGE_DOS_HEADER' of greater size
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\utils\scanner\scanner.hpp(49): warning C4312: 'reinterpret_cast': conversion from 'unsigned long' to 'PIMAGE_NT_HEADERS' of greater size
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\cbaseentity\cbaseentity.hpp(190,10): warning C4244: 'return': conversion from 'unsigned __int64' to 'unsigned long', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\cbaseentity\cbaseentity.hpp(194,1): warning C4312: 'type cast': conversion from 'unsigned long' to 'char *' of greater size
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\vguisystem\vguisystem.hpp(40,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\sdk\apex_src\vguisystem\vguisystem.hpp(40,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\visuals\visuals.hpp(80,1): warning C4312: 'type cast': conversion from 'int' to 'int *' of greater size
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(89,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(93,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(103,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(103,111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(108,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(108,111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(113,116): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(113,109): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(118,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\root\Documents\Projects\internal\Apex-Internal\Apex-Internal\includes\features\overlay\overlay.hpp(118,111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  176 of 1552 functions (11.3%) were compiled, the rest were copied from previous compilation.
+    64 functions were new in current compilation
+    17 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Apex-Internal.vcxproj -> C:\kernel32.dll

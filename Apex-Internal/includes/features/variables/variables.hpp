@@ -52,10 +52,14 @@ namespace visuals
 	bool enable_visuals = false;
 	bool enable_outline = false;
 	bool enable_chams = false;
+
+	bool item_esp = false;
 	
 	bool enable_box = false;
 	bool name_esp = false;
 	bool health_esp = false;
+
+	bool weapon_chams = false;
 
 	bool enable_thirdperson = false;
 

@@ -75,6 +75,8 @@
     <IntDir>$(Platform)\$(Configuration)\Intermediate</IntDir>
     <OutDir>C:\</OutDir>
     <TargetName>kernel32</TargetName>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,6 +159,7 @@
     <ClInclude Include="includes\features\overlay\defines\defines.hpp" />
     <ClInclude Include="includes\features\overlay\DX11\DX11.hpp" />
     <ClInclude Include="includes\features\overlay\Extra\extra.hpp" />
+    <ClInclude Include="includes\features\overlay\Image\Image.h" />
     <ClInclude Include="includes\features\overlay\ImGui\imconfig.h" />
     <ClInclude Include="includes\features\overlay\ImGui\imgui.h" />
     <ClInclude Include="includes\features\overlay\ImGui\imgui_color_gradient.h" />

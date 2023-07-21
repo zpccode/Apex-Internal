@@ -3,39 +3,39 @@
 
 namespace offsets_modules 
 {
-	inline uintptr_t module_base = (uintptr_t)spoof_call::GetModuleBase(__("EasyAntiCheat_launcher.exe"));
+	inline uintptr_t module_base = (uintptr_t)spoof_call::GetModuleBase(__("r5apex.exe"));
 }
 
 namespace offsets
 {
-	inline uintptr_t client_render_targets = 0x20d3cb8;
-	inline uintptr_t ibase_client_dll = 0x1de4570;
-	inline uintptr_t iclient_entity_list = 0x1e53c67;
-	inline uintptr_t cprediction = 0x0;
-	inline uintptr_t iv_model_render = 0x0;
-	inline uintptr_t vgui_system = 0x0;
-	inline uintptr_t iv_render_view = 0x0;
-	inline uintptr_t iv_debug_overlay = 0x0;
-	inline uintptr_t iv_model_info_client = 0x0;
-	inline uintptr_t iv_engine_client = 0x0;
-	inline uintptr_t iv_engine_trace = 0x0;
-	inline uintptr_t inetwork_string_table = 0x0;
-	inline uintptr_t cinput = 0x0;
-	inline uintptr_t cengine = 0x0;
-	inline uintptr_t iswapchain = 0x0;
-	inline uintptr_t cl_entitylist = 0x0;
-	inline uintptr_t local_entity_handle = 0x0;
-	inline uintptr_t local_player = 0x7509f40;
-	inline uintptr_t global_vars = 0x16043c8;
-	inline uintptr_t name_list = 0xbe94b60;
-	inline uintptr_t view_render = 0x5d2853;
-	inline uintptr_t view_matrix = 0x0;
-	inline uintptr_t client_state = 0x16fa070;
-	inline uintptr_t sign_on_state = 0x16fa108;
-	inline uintptr_t level_name = 0x16fa230;
-	inline uintptr_t glow_enable = 0xee2;
-	inline uintptr_t glow_type = 0x140;
-	inline uintptr_t glow_color = 0x1d0;
+	uintptr_t client_render_targets = 0x20d4e18;
+	uintptr_t ibase_client_dll = 0x1de5590;
+	uintptr_t iclient_entity_list = 0x1e54dc7;
+	uintptr_t cprediction = 0x0;
+	uintptr_t iv_model_render = 0x0;
+	uintptr_t vgui_system = 0x0;
+	uintptr_t iv_render_view = 0x0;
+	uintptr_t iv_debug_overlay = 0x0;
+	uintptr_t iv_model_info_client = 0x0;
+	uintptr_t iv_engine_client = 0x0;
+	uintptr_t iv_engine_trace = 0x0;
+	uintptr_t inetwork_string_table = 0x0;
+	uintptr_t cinput = 0x0;
+	uintptr_t cengine = 0x0;
+	uintptr_t iswapchain = 0x0;
+	uintptr_t cl_entitylist = 0x0;
+	uintptr_t local_entity_handle = 0x0;
+	uintptr_t local_player = 0x750b140;
+	uintptr_t global_vars = 0x16053c8;
+	uintptr_t name_list = 0xbe95d60;
+	uintptr_t view_render = 0x5d2c13;
+	uintptr_t view_matrix = 0x0;
+	uintptr_t client_state = 0x16fb080;
+	uintptr_t sign_on_state = 0x16fb118;
+	uintptr_t level_name = 0x16fb240;
+	uintptr_t glow_enable = 0xcc0;
+	uintptr_t glow_type = 0x2c0;
+	uintptr_t glow_color = 0x1d0;
 	
 	inline  uintptr_t thirdperson_override = 0x01b1c8b0;
 	inline  uintptr_t m_thirdPersonShoulderView = 0x36c8; // Int

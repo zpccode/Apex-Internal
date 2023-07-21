@@ -135,10 +135,12 @@ public:
 		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->CheckBox("Enable Visuals", &visuals::enable_visuals);
-		pImGuiFeatures->CheckBox(skCrypt("Third Person").decrypt(), &visuals::enable_thirdperson);
+		//pImGuiFeatures->CheckBox(skCrypt("Third Person").decrypt(), &visuals::);
 
 		pImGuiFeatures->CheckBox(skCrypt("Enable Radar").decrypt(), &visuals::render_radar_option);
 		pImGuiFeatures->CheckBox(skCrypt("Enable Outline").decrypt(), &visuals::enable_outline);
+		pImGuiFeatures->CheckBox(skCrypt("Enable Item Esp").decrypt(), &visuals::item_esp);
+		pImGuiFeatures->CheckBox(skCrypt("Enable Weapon Chams").decrypt(), &visuals::weapon_chams);
 
 		pImGuiFeatures->CheckBox(skCrypt("FPS Window").decrypt(), &visuals::render_frame_window);
 

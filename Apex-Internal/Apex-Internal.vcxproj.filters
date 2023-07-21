@@ -260,6 +260,9 @@
     <ClInclude Include="includes\sdk\eac\easyanticheat.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="includes\features\overlay\Image\Image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="includes\modules\spoofer\spoof.asm">

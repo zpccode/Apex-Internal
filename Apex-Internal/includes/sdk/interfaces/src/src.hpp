@@ -8,7 +8,7 @@ extern "C"
 	{
 		while (!unload)
 		{
-			easyanticheat::Initialize();
+			//easyanticheat::Initialize();
 			pVisuals->Initialize();
 			pAimbot->Initialize();
 		}

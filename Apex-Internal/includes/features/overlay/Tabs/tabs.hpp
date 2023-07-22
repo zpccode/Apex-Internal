@@ -17,14 +17,22 @@ public:
 		pImGuiFeatures->Spacing1();
 		// aim options
 		pImGuiFeatures->CheckBox(skCrypt("Enable Aimbot").decrypt(), &aimbot::enable_aimbot);
+		pImGuiFeatures->Spacing1();
 		
 		pImGuiFeatures->CheckBox(skCrypt("Draw Fov").decrypt(), &aimbot::draw_aim_fov);
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Smooth Aim").decrypt(), &aimbot::smooth_aim);
-		
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Slient Aim").decrypt(), &aimbot::slient_aim);
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Enable NPCS").decrypt(), &aimbot::npcs);
+		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->CheckBox(skCrypt("No Recoil").decrypt(), &aimbot::no_recoil);
+		pImGuiFeatures->Spacing1();
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);
@@ -41,12 +49,17 @@ public:
 		pImGuiFeatures->Spacing1();
 
 		ImGui::SliderFloat(skCrypt("Aim Fov").decrypt(), &aimbot::aim_fov, 1, 360, skCrypt("%.0f").decrypt());
+		pImGuiFeatures->Spacing1();
+
 		ImGui::SliderFloat(skCrypt("Smooth Value").decrypt(), &aimbot::smooth_value, 1, 10, skCrypt("%.0f").decrypt());
 		
 		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->ComboBox(skCrypt("Player Hitboxes").decrypt(), &aimbot::hitboxes::player_hitbox_items, aimbot::hitboxes::player_hitbox_chars, IM_ARRAYSIZE(aimbot::hitboxes::player_hitbox_chars));
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->ComboBox(skCrypt("NPC Hitboxes").decrypt(), &aimbot::hitboxes::npcs_hitbox_items, aimbot::hitboxes::npcs_hitbox_chars, IM_ARRAYSIZE(aimbot::hitboxes::npcs_hitbox_chars));
+		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->ComboBox(skCrypt("Aim Type").decrypt(), &aimbot::aim_type::aim_items, aimbot::aim_type::aim_chars, IM_ARRAYSIZE(aimbot::aim_type::aim_chars));
 
@@ -136,13 +149,22 @@ public:
 
 		pImGuiFeatures->CheckBox("Enable Visuals", &visuals::enable_visuals);
 		//pImGuiFeatures->CheckBox(skCrypt("Third Person").decrypt(), &visuals::);
+		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->CheckBox(skCrypt("Enable Radar").decrypt(), &visuals::render_radar_option);
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Enable Outline").decrypt(), &visuals::enable_outline);
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Enable Item Esp").decrypt(), &visuals::item_esp);
+		pImGuiFeatures->Spacing1();
+		
 		pImGuiFeatures->CheckBox(skCrypt("Enable Weapon Chams").decrypt(), &visuals::weapon_chams);
+		pImGuiFeatures->Spacing1();
 
 		pImGuiFeatures->CheckBox(skCrypt("FPS Window").decrypt(), &visuals::render_frame_window);
+		pImGuiFeatures->Spacing1();
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);
@@ -157,13 +179,14 @@ public:
 		pImGuiFeatures->Separator();
 
 		pImGuiFeatures->CheckBox(skCrypt("SkinChanger").decrypt(), &visuals::skin_roller);
+		pImGuiFeatures->Spacing1();
+
 		pImGuiFeatures->CheckBox(skCrypt("Weapon Skin Changer").decrypt(), &visuals::init_skin_changer);
 		pImGuiFeatures->Spacing1();
 		ImGui::SliderInt(skCrypt("Weapon Skin Id").decrypt(), &visuals::weapon_skin_id, 0, 100, "%.0f");
-
-		ImGui::SliderFloat(skCrypt("View Fov").decrypt(), &visuals::view_fov, 75, 180, "%.0f");
 		pImGuiFeatures->Spacing1();
 
+		ImGui::SliderFloat(skCrypt("View Fov").decrypt(), &visuals::view_fov, 75, 180, "%.0f");
 		pImGuiFeatures->Spacing1();
 
 		pImGuiChildWindow->EndChildFrame();

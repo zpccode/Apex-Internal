@@ -188,6 +188,7 @@
     <ClInclude Include="includes\modules\security\umium.h" />
     <ClInclude Include="includes\modules\security\xorstr.h" />
     <ClInclude Include="includes\modules\spoofer\spoofer.hpp" />
+    <ClInclude Include="includes\modules\windows\windows_api.h" />
     <ClInclude Include="includes\sdk\apex_src\apex_src.hpp" />
     <ClInclude Include="includes\sdk\apex_src\baseclient\baseclient.hpp" />
     <ClInclude Include="includes\sdk\apex_src\cbasecombatweapons\cbasecombatweapon.hpp" />

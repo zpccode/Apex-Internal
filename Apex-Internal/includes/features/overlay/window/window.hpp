@@ -49,9 +49,9 @@ public:
 	ImColor WindowButtonHovered = ImColor(85, 0, 255, 255);
 
 	ImColor WindowSlider = ImColor(68, 0, 255, 255);
-	ImColor WindowSliderGrab = ImColor(85, 0, 255, 255);
+	ImColor WindowSliderGrab = ImColor(68, 0, 255, 255);
 
-	ImColor WindowFrameBackground = ImColor(108, 106, 106, 255);
+	ImColor WindowFrameBackground = ImColor(28, 28, 28, 255);
 	ImColor WindowFrameHover = ImColor(85, 0, 255, 255);
 	ImColor WindowFrameActive = ImColor(85, 0, 255, 255);
 

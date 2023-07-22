@@ -2,8 +2,8 @@
 
 __declspec() attach* attach::init_thread(HMODULE hModule, void* hBuffer)
 {
-	thread::NTCreateThread((LPTHREAD_START_ROUTINE)present::hook_present, 0, 0);
-	thread::NTCreateThread((LPTHREAD_START_ROUTINE)FeaturesThread, 0, 0);
+	pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)present::hook_present, 0, 0);
+	pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)FeaturesThread, 0, 0);
 	return nullptr;
 }
 

@@ -55,7 +55,7 @@ extern "C" { namespace present
 		pOverlay->render_cursor = ImGui::GetIO().WantCaptureMouse;
 		pOverlay->capture_cursor = ImGui::GetIO().MouseDrawCursor;
 
-		if (spoof_call::GetKey(VK_INSERT) & 0x1) { pOverlay->render_overlay = !pOverlay->render_overlay; }
+		if (pKeyInput->GetKeyState(VK_INSERT) & 0x1) { pOverlay->render_overlay = !pOverlay->render_overlay; }
 
 		if (pOverlay->render_overlay) { pOverlay->RenderOverlay(); }
 

@@ -18,7 +18,7 @@ bool DX11::InitWindow()
 	pD3D11->WindowClass.lpfnWndProc = DefWindowProc;
 	pD3D11->WindowClass.cbClsExtra = 0;
 	pD3D11->WindowClass.cbWndExtra = 0;
-	pD3D11->WindowClass.hInstance = spoof_call::GetModuleBase(NULL);
+	pD3D11->WindowClass.hInstance = m_pMemory->pNTModules->NtGetModuleHandleExW(NULL);
 	pD3D11->WindowClass.hIcon = NULL;
 	pD3D11->WindowClass.hCursor = NULL;
 	pD3D11->WindowClass.hbrBackground = NULL;
@@ -44,8 +44,8 @@ bool DX11::Initialize()
 {
 	if (this->InitWindow() == false) { this->DeleteWindow(); return false; }
 
-	HINSTANCE hModule = spoof_call::GetModuleBase(skCrypt("d3d11.dll").decrypt());
-	void* D3D11CreateDeviceSwapChain = spoof_call::GetModuleProcAddr(hModule, skCrypt("D3D11CreateDeviceAndSwapChain").decrypt());
+	HINSTANCE hModule = m_pMemory->pNTModules->NtGetModuleHandleExW(skCrypt("d3d11.dll").decrypt());
+	void* D3D11CreateDeviceSwapChain = m_pMemory->pNTModules->NtGetProcAddress(hModule, skCrypt("D3D11CreateDeviceAndSwapChain").decrypt());
 	
 	D3D_FEATURE_LEVEL featureLevel;
 	const D3D_FEATURE_LEVEL featureLevels[] = { D3D_FEATURE_LEVEL_10_1, D3D_FEATURE_LEVEL_11_0 };
@@ -99,9 +99,9 @@ bool DX11::Initialize()
 	}
 
 	MethodsTable = (uintx_t*)::spoof_call::NtCalloc(205, sizeof(uintx_t));
-	spoof_call::SafeCopy(MethodsTable, *(uintx_t**)swapChain, 18 * sizeof(uintx_t));
-	spoof_call::SafeCopy(MethodsTable + 18, *(uintx_t**)device, 43 * sizeof(uintx_t));
-	spoof_call::SafeCopy(MethodsTable + 18 + 43, *(uintx_t**)context, 144 * sizeof(uintx_t));
+	m_pMemory->pNtMemCopy->NtMemCopyEx(MethodsTable, *(uintx_t**)swapChain, 18 * sizeof(uintx_t));
+	m_pMemory->pNtMemCopy->NtMemCopyEx(MethodsTable + 18, *(uintx_t**)device, 43 * sizeof(uintx_t));
+	m_pMemory->pNtMemCopy->NtMemCopyEx(MethodsTable + 18 + 43, *(uintx_t**)context, 144 * sizeof(uintx_t));
 
 	NTMakeHook::NTInitializeHook();
 

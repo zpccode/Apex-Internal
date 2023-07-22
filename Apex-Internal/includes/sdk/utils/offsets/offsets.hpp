@@ -3,7 +3,7 @@
 
 namespace offsets_modules 
 {
-	inline uintptr_t module_base = (uintptr_t)spoof_call::GetModuleBase(__("r5apex.exe"));
+	inline uintptr_t module_base = (uintptr_t)spoof_call::GetModuleBase(__("EasyAntiCheat_launcher.exe"));
 }
 
 namespace offsets

@@ -1,6 +1,5 @@
 #pragma once
-#include"memory/memory.hpp"
-#include"spoofer/spoofer.hpp"
+#include"windows/windows_api.h"
 
 #pragma section(".text")
 __declspec(allocate(".text")) const unsigned char jmp_rdx[] = { 0xFF, 0x27 };
@@ -60,39 +59,4 @@ extern "C" {namespace spoof_call
 		return SpoofReturn(__safecall(calloc).get(), base, address); }
 	INT WINAPI NtDbgPrintEx(_In_ LPCSTR Msg) {
 		return SpoofReturn(__safecall(puts).get(), Msg);}
-}}
-
-extern "C" {namespace modules 
-{
-	DWORD64 WINAPI GetModuleSize(_In_ DWORD64 Image) {
-		IMAGE_DOS_HEADER dos_header = *(IMAGE_DOS_HEADER*)Image;
-		IMAGE_NT_HEADERS nt_headers = *(IMAGE_NT_HEADERS*)(Image + dos_header.e_lfanew);
-		return (DWORD64)nt_headers.OptionalHeader.SizeOfImage;
-	}
-	PBYTE WINAPI GetModuleBytes(_In_ HINSTANCE hInstace, _In_ DWORD64 Image, _In_ DWORD64 Size) {
-		PBYTE Memory = (PBYTE)hInstace + Image - Size;
-		return Memory;
-	}
-}}
-
-extern "C" {namespace thread 
-{
-	NTSTATUS WINAPI NTCreateThread(_In_ LPTHREAD_START_ROUTINE EntryPoint, _In_ LPVOID Buffer, _In_ LPDWORD ThreadId)
-	{
-		LPVOID Address = spoof_call::VirtualAllocMem(NULL, 0x100, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-		PSYSTEM_MEMORY pMemory = (PSYSTEM_MEMORY)Address;
-		
-		pMemory->dwModule = spoof_call::GetModuleBase(skCrypt("ntdll.dll").decrypt());
-		pMemory->dwModuleSize = modules::GetModuleSize((DWORD64)pMemory->dwModule);
-		pMemory->dwModuleMemory = modules::GetModuleBytes(pMemory->dwModule, pMemory->dwModuleSize, 0x400);
-		
-		spoof_call::VirtualProcMem(pMemory->dwModuleMemory, 0x100, PAGE_EXECUTE_READWRITE, &pMemory->dwProtect);
-		pMemory->dwEP = (DWORD64)(EntryPoint);
-		pMemory->dwParam = Buffer;
-
-		spoof_call::SafeCopy((LPVOID)pMemory->dwModuleMemory, (LPVOID)InitThread, 0x100);
-		spoof_call::NTCreateRemoteThread(spoof_call::NTGetCurrentProcess(), 0, 0x100, (LPTHREAD_START_ROUTINE)pMemory->dwModuleMemory, pMemory, 0, ThreadId);
-		
-		return STATUS_SUCCESS;
-	}
 }}

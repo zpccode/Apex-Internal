@@ -1,21 +1,13 @@
 #pragma once
 #include"../../../modules/modules.hpp"
 
-class KeyInput {
-private:
-	int vk_insert = VK_INSERT;
+class KeyInput
+{
 public:
-	__forceinline bool GetKeyState(int key_code)
-	{
-		typedef BOOL(__stdcall* GetKeyInput)(int);
-		GetKeyInput _KeyInput = reinterpret_cast<GetKeyInput>(__safecall(GetAsyncKeyState)(key_code));
-		return _KeyInput;
+	BOOL WINAPI GetKeyState(INT KEY_CODE) {
+		return SpoofReturn(__safecall(GetAsyncKeyState).get(), KEY_CODE);
 	}
-
-	__forceinline bool isPressed()
-	{
-		int key_code = 0;
-		if (this->GetKeyState(key_code) == true) { return true; }
-		return false;
+	BOOL WINAPI ExitThreadKey(INT KEY_CODE) {
+		return FALSE;
 	}
-}; KeyInput* pKeyInput = new KeyInput();
+}; KeyInput* pKeyInput;

@@ -54,8 +54,6 @@ extern "C" { namespace anti_cheat_globals
 
 extern "C" {namespace easyanticheat
 {
-	
-
 	NTSTATUS WINAPI Initialize()
 	{
 

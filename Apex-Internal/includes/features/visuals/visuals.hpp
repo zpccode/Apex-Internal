@@ -51,21 +51,11 @@ public:
 		return STATUS_SUCCESS; 
 	}
 	
-	NTSTATUS WINAPI ItemOutline(CLocalEntity LocalEntity)
+	NTSTATUS WINAPI UnlockAll(CLocalEntity LocalEntity)
 	{
-		CBaseEntity BaseEntity = CBaseEntity();
-
-		if (!LocalEntity.Entity)
-			return STATUS_ERROR;
-
-		for (int i = 0; i < 12000; i++)
-		{
-			DWORD64 Entity = BaseEntity.GetEntity(i);
-			if (!Entity || Entity == LocalEntity.Entity)
-				continue;
-			*(int*)(Entity + 0x2C0) = 1363184265;
-		}
-
+		uintptr_t unlock_all = (uintptr_t)pScanner.PatternScan((LPVOID)offsets_modules::module_base
+			, "48 8D 05 ? ? ? ? 48 89 05 ? ? ? ?") + 3;
+		*reinterpret_cast<short*>(unlock_all) = 1;
 		return STATUS_SUCCESS;
 	}
 
@@ -77,7 +67,7 @@ public:
 		DWORD64 ViewModuleHandle = (DWORD64)(LocalEntity.Entity + 0x2d60) & 0xFFFF;
 		DWORD64 ViewModelPtr = (DWORD64)(offsets_modules::module_base + offsets::cl_entitylist + ViewModuleHandle & 0x20);
 
-		*(int*)(ViewModelPtr + 0x3D0, 2);
+		*(int*)(ViewModelPtr + 0x3D0) = 2;
 		*(GlowMode*)(ViewModelPtr + 0x2C4) = { 101,101,46,0 };
 		*(float*)(ViewModelPtr + 0x1D0) = 1.f;
 		*(float*)(ViewModelPtr + 0x1D4) = 19.f;
@@ -153,7 +143,8 @@ public:
 		if (visuals::enable_thirdperson) { pVisualFeatures->ThirdPerson(LocalEntity); }
 		
 		if (visuals::enable_outline) { pVisualFeatures->PlayerOutline(LocalEntity); }
-		if (visuals::item_esp) { pVisualFeatures->ItemOutline(LocalEntity); }
+		
+		if (visuals::item_esp) { pVisualFeatures->UnlockAll(LocalEntity); }
 		if (visuals::weapon_chams) { pVisualFeatures->WeaponChams(LocalEntity); }
 		
 		return STATUS_SUCCESS;

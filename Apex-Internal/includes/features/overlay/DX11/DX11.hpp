@@ -11,31 +11,55 @@ public:
 	bool Initialize();
 }; DX11* pDX11 = new DX11();
 
+class NtCreateWindow
+{
+public:
+	ATOM WINAPI NtRegisterWnd(const WNDCLASSEX* oWndClass) {
+		return SpoofReturn(RegisterClassEx, oWndClass);
+	}
+	ATOM WINAPI NtUnregisterWnd(LPCWSTR Class, _In_ HINSTANCE hInst) {
+		return SpoofReturn(UnregisterClass, Class, hInst);
+	}
+	BOOL WINAPI NtDeleteWindow(HWND hWindow) {
+		return SpoofReturn(__safecall(DestroyWindow).get(), hWindow);
+	}
+	HWND WINAPI NtCreateWindowEx(DWORD Exit, LPCWSTR Class, LPCWSTR Name, DWORD Style, int x, int y, int w, int h, HWND hWindow,
+		HMENU hMenu, HINSTANCE hInst, LPVOID Param) {
+		return SpoofReturn(CreateWindowExW, Exit, Class, Name, Style, x, y, w, h, hWindow, hMenu, hInst, Param);
+	}
+	
+}; NtCreateWindow* pWindowEx = new NtCreateWindow();
+
 bool DX11::InitWindow()
 {
 	pD3D11->WindowClass.cbSize = sizeof(WNDCLASSEX);
 	pD3D11->WindowClass.style = CS_HREDRAW | CS_VREDRAW;
 	pD3D11->WindowClass.lpfnWndProc = DefWindowProc;
+	
 	pD3D11->WindowClass.cbClsExtra = 0;
 	pD3D11->WindowClass.cbWndExtra = 0;
 	pD3D11->WindowClass.hInstance = m_pMemory->pNTModules->NtGetModuleHandleExW(NULL);
+	
 	pD3D11->WindowClass.hIcon = NULL;
 	pD3D11->WindowClass.hCursor = NULL;
 	pD3D11->WindowClass.hbrBackground = NULL;
+	
 	pD3D11->WindowClass.lpszMenuName = NULL;
-	pD3D11->WindowClass.lpszClassName = L"OK";
+	pD3D11->WindowClass.lpszClassName = __(L"OK");
 	pD3D11->WindowClass.hIconSm = NULL;
-	spoof_call::RegisterWndClas(&pD3D11->WindowClass);
-	pD3D11->WindowHwnd = spoof_call::NtCreateWindow(NULL, pD3D11->WindowClass.lpszClassName, L"Apex Window", 
+	
+	pWindowEx->NtRegisterWnd(&pD3D11->WindowClass);
+	pD3D11->WindowHwnd = pWindowEx->NtCreateWindowEx(NULL, pD3D11->WindowClass.lpszClassName, __(L"Apex Window"), 
 		WS_OVERLAPPEDWINDOW, 0, 0, 100, 100, NULL, NULL, pD3D11->WindowClass.hInstance, NULL);
 	if (pD3D11->WindowHwnd == NULL) { return false; }
+	
 	return true;
 }
 
 bool DX11::DeleteWindow()
 {
-	spoof_call::_DeleteWindow(pD3D11->WindowHwnd);
-	spoof_call::UnregisterWndClass(pD3D11->WindowClass.lpszClassName, pD3D11->WindowClass.hInstance);
+	pWindowEx->NtDeleteWindow(pD3D11->WindowHwnd);
+	pWindowEx->NtUnregisterWnd(pD3D11->WindowClass.lpszClassName, pD3D11->WindowClass.hInstance);
 	if (pD3D11->WindowHwnd != NULL) { return false; }
 	return true;
 }

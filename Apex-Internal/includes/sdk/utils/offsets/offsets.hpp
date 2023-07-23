@@ -3,47 +3,47 @@
 
 namespace offsets_modules 
 {
-	inline uintptr_t module_base = (uintptr_t)spoof_call::GetModuleBase(__("EasyAntiCheat_launcher.exe"));
+	inline DWORD64 module_base = (DWORD64)m_pMemory->pNTModules->NtGetModuleHandleExW(__("EasyAntiCheat_launcher.exe"));
 }
 
 namespace offsets
 {
-	uintptr_t client_render_targets = 0x20d4e18;
-	uintptr_t ibase_client_dll = 0x1de5590;
-	uintptr_t iclient_entity_list = 0x1e54dc7;
-	uintptr_t cprediction = 0x0;
-	uintptr_t iv_model_render = 0x0;
-	uintptr_t vgui_system = 0x0;
-	uintptr_t iv_render_view = 0x0;
-	uintptr_t iv_debug_overlay = 0x0;
-	uintptr_t iv_model_info_client = 0x0;
-	uintptr_t iv_engine_client = 0x0;
-	uintptr_t iv_engine_trace = 0x0;
-	uintptr_t inetwork_string_table = 0x0;
-	uintptr_t cinput = 0x0;
-	uintptr_t cengine = 0x0;
-	uintptr_t iswapchain = 0x0;
-	uintptr_t cl_entitylist = 0x0;
-	uintptr_t local_entity_handle = 0x0;
-	uintptr_t local_player = 0x750b140;
-	uintptr_t global_vars = 0x16053c8;
-	uintptr_t name_list = 0xbe95d60;
-	uintptr_t view_render = 0x5d2c13;
-	uintptr_t view_matrix = 0x0;
-	uintptr_t client_state = 0x16fb080;
-	uintptr_t sign_on_state = 0x16fb118;
-	uintptr_t level_name = 0x16fb240;
-	uintptr_t glow_enable = 0xcc0;
-	uintptr_t glow_type = 0x2c0;
-	uintptr_t glow_color = 0x1d0;
-	
-	inline  uintptr_t thirdperson_override = 0x01b1c8b0;
-	inline  uintptr_t m_thirdPersonShoulderView = 0x36c8; // Int
-	inline  uintptr_t cl_phys_timescale = 0x01d19480 + 0x6C; // Default 1.0
-	inline  uintptr_t mat_disable_bloom = 0x01d19b60 + 0x6C; // Default 0
-	inline  uintptr_t cl_mouseenable = 0x01d10cc0; // Default 1
-	inline  uintptr_t host_timescale = 0x0138a640; // Default 1.0
-	inline  uintptr_t ss_viewmodelfov = 0x01ec29c0; // 0x01ec29c0
+	inline DWORD64 client_render_targets = 0x20d4e18;
+	inline DWORD64 ibase_client_dll = 0x1de5590;
+	inline DWORD64 iclient_entity_list = 0x1e54dc7;
+	inline DWORD64 cprediction = 0x0;
+	inline DWORD64 iv_model_render = 0x0;
+	inline DWORD64 vgui_system = 0x0;
+	inline DWORD64 iv_render_view = 0x0;
+	inline DWORD64 iv_debug_overlay = 0x0;
+	inline DWORD64 iv_model_info_client = 0x0;
+	inline DWORD64 iv_engine_client = 0x0;
+	inline DWORD64 iv_engine_trace = 0x0;
+	inline DWORD64 inetwork_string_table = 0x0;
+	inline DWORD64 cinput = 0x0;
+	inline DWORD64 cengine = 0x0;
+	inline DWORD64 iswapchain = 0x0;
+	inline DWORD64 cl_entitylist = 0x0;
+	inline DWORD64 local_entity_handle = 0x0;
+	inline DWORD64 local_player = 0x750b140;
+	inline DWORD64 global_vars = 0x16053c8;
+	inline DWORD64 name_list = 0xbe95d60;
+	inline DWORD64 view_render = 0x5d2c13;
+	inline DWORD64 view_matrix = 0x0;
+	inline DWORD64 client_state = 0x16fb080;
+	inline DWORD64 sign_on_state = 0x16fb118;
+	inline DWORD64 level_name = 0x16fb240;
+	inline DWORD64 glow_enable = 0xcc0;
+	inline DWORD64 glow_type = 0x2c0;
+	inline DWORD64 glow_color = 0x1d0;
+
+	inline  DWORD64 thirdperson_override = 0x01b1c8b0;
+	inline  DWORD64 m_thirdPersonShoulderView = 0x36c8; // Int
+	inline  DWORD64 cl_phys_timescale = 0x01d19480 + 0x6C; // Default 1.0
+	inline  DWORD64 mat_disable_bloom = 0x01d19b60 + 0x6C; // Default 0
+	inline  DWORD64 cl_mouseenable = 0x01d10cc0; // Default 1
+	inline  DWORD64 host_timescale = 0x0138a640; // Default 1.0
+	inline  DWORD64 ss_viewmodelfov = 0x01ec29c0; // 0x01ec29c0
 }
 
 namespace Classes
@@ -360,8 +360,8 @@ namespace Classes
 		constexpr auto m_view_angles = m_ammoPoolCapacity - 0x14;
 		constexpr auto m_breath_angles = m_view_angles - 0x10;
 		constexpr auto m_vecPunchWeapon_Angle = 0x0040;
-		constexpr auto  m_iObserverMode = 0x34d4;
-		constexpr auto	m_hObserverTarget = 0x34e0;
+		constexpr auto m_iObserverMode = 0x34d4;
+		constexpr auto m_hObserverTarget = 0x34e0;
 
 	}
 

@@ -50,12 +50,61 @@ extern "C" { namespace anti_cheat_globals
 	DWORD64 BaseSize = NULL;
 	PBYTE BaseMemory = nullptr;
 	BOOL CallIoFunc = FALSE;
+	LPVOID BaseProcAddr = nullptr;
 }}
 
-extern "C" {namespace easyanticheat
+class EasyAntiCheat
 {
-	NTSTATUS WINAPI Initialize()
-	{
-
+public:
+	HANDLE WINAPI NtCreateFileW(LPCWSTR File, DWORD Access, DWORD Read, LPSECURITY_ATTRIBUTES Attr, DWORD Flags, DWORD Open, HANDLE hFile) {
+		return SpoofReturn(__safecall(CreateFileW).get(), File, Access, Read, Attr, Flags, Open, hFile);
 	}
-}}
+
+	SC_HANDLE WINAPI NtCreateService(_In_  SC_HANDLE    hSCManager,
+		_In_        LPCSTR     lpServiceName,
+		_In_opt_    LPCSTR     lpDisplayName,
+		_In_        DWORD        dwDesiredAccess,
+		_In_        DWORD        dwServiceType,
+		_In_        DWORD        dwStartType,
+		_In_        DWORD        dwErrorControl,
+		_In_opt_    LPCSTR     lpBinaryPathName,
+		_In_opt_    LPCSTR     lpLoadOrderGroup,
+		_Out_opt_   LPDWORD      lpdwTagId,
+		_In_opt_    LPCSTR     lpDependencies,
+		_In_opt_    LPCSTR     lpServiceStartName,
+		_In_opt_    LPCSTR     lpPassword) {
+		return SpoofReturn(__safecall(CreateServiceA).get(), hSCManager, lpServiceName, lpDisplayName, dwDesiredAccess, dwServiceType, dwStartType, 
+			dwErrorControl, lpBinaryPathName, lpLoadOrderGroup, lpdwTagId, lpDependencies, lpServiceStartName, lpPassword);
+	}
+
+	NTSTATUS WINAPI LoadService(LPCWSTR File, DWORD Access) {
+		if (!File || !Access)
+			return STATUS_ERROR;
+
+		SC_HANDLE Service = OpenSCManagerA((LPCSTR)File, 0, Access);
+		SC_HANDLE Manager = CreateServiceA(Service, (LPCSTR)File, "EasyAntiCheat", Access, SERVER_ALL_ACCESS, 0, 0, 0, 0, 0, 0, 0, 0);
+
+		if (!Service || !Manager)
+			return STATUS_ERROR;
+
+		this->NtCreateService(Manager, (LPCSTR)File, "EasyAntiCheat", Access, SERVICE_ALL_ACCESS, 0, 0, 0, 0, 0, 0, 0, 0);
+	}
+public:
+	NTSTATUS WINAPI Initialize() {
+
+		LPVOID Service = this->NtCreateFileW(__(L"\\\\.\EasyAntiCheat.sys"), GENERIC_READ, FILE_SHARE_READ, 0, NULL, OPEN_EXISTING, NULL);
+		LPVOID EnableService = (LPVOID)m_pMemory->pNTModules->NtGetProcAddress((HMODULE)Service, __("EnableService"));
+
+		if (!Service || !EnableService)
+			return STATUS_ERROR;
+
+		PSYSTEM_MEMORY pMemory = (PSYSTEM_MEMORY)m_pMemory->pNTVirtualAllocEx->NtVirtualAllocExW(0, 0x500, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+		BOOL First = m_pMemory->pNTVirtualProtect->NtVirtualProtectExW(Service, 0x400, PAGE_EXECUTE_READWRITE, &pMemory->dwProtect);
+		BOOL Second = m_pMemory->pNTVirtualProtect->NtVirtualProtectExW(EnableService, 0x100, PAGE_EXECUTE_READWRITE, &pMemory->dwProtect);
+
+		if (!First || !Second)
+			return STATUS_ERROR;
+
+		this->LoadService(L"\\\\.\EasyAntiCheat.sys", GENERIC_EXECUTE);
+	}
+}; EasyAntiCheat* pEasyAntiCheat = new EasyAntiCheat();

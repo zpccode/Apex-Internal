@@ -156,6 +156,7 @@
     <ClInclude Include="includes\features\Aimbot\Aimbot.hpp" />
     <ClInclude Include="includes\features\Aimbot\Prediection\Prediction.hpp" />
     <ClInclude Include="includes\features\features.hpp" />
+    <ClInclude Include="includes\features\Misc\Misc.h" />
     <ClInclude Include="includes\features\overlay\defines\defines.hpp" />
     <ClInclude Include="includes\features\overlay\DX11\DX11.hpp" />
     <ClInclude Include="includes\features\overlay\Extra\extra.hpp" />

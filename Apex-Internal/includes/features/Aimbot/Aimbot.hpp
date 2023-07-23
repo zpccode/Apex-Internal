@@ -1,59 +1,23 @@
 #pragma once
-#include"../variables/variables.hpp"
 #include"Prediection/Prediction.hpp"
 #include"../../sdk/apex_src/apex_src.hpp"
 #include"../../sdk/utils/memory/memory.h"
+#include"../Misc/Misc.h"
 
 class CAimbot
 {
 private:
-	NTSTATUS WINAPI SlientAim(CLocalEntity LocalEntity, UserCmd_t* pCmd) { 
-		uintptr_t local_entity = LocalEntity.Entity;
-		CBaseEntity Entity = CBaseEntity();
+	NTSTATUS WINAPI SlientAim(CLocalEntity LocalEntity, UserCmd_t* pCmd) 
+	{ 
+		if (!LocalEntity.Entity)
+			return STATUS_ERROR;
 
-		for (int i = 0; i < 200; i++)
-		{
-			uintptr_t entity = Entity.GetEntity(i);
-			if (!entity || entity == LocalEntity.Entity || !LocalEntity.Entity)
-				continue;
-
-			uintptr_t is_entity_alive = Entity.isAlive(Classes::CPlayer::m_iHealth);
-			if (!is_entity_alive)
-				continue;
-
-			uintptr_t local_team = LocalEntity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			uintptr_t enemy_team = Entity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			if (enemy_team == local_team)
-				continue;
-
-			CGlobalVars GlobalVars = *(CGlobalVars*)(offsets_modules::module_base + offsets::global_vars);
-
-		}
 		return STATUS_SUCCESS;
 	}
-	NTSTATUS WINAPI SmoothAim(CLocalEntity LocalEntity, UserCmd_t* pCmd) {
-		uintptr_t local_entity = LocalEntity.Entity;
-		CBaseEntity Entity = CBaseEntity();
-
-		for (int i = 0; i < 200; i++)
-		{
-			uintptr_t entity = Entity.GetEntity(i);
-			if (!entity || entity == LocalEntity.Entity || !LocalEntity.Entity)
-				continue;
-
-			uintptr_t is_entity_alive = Entity.isAlive(Classes::CPlayer::m_iHealth);
-			if (!is_entity_alive)
-				continue;
-
-			uintptr_t local_team = LocalEntity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			uintptr_t enemy_team = Entity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			if (enemy_team == local_team)
-				continue;
-
-			CGlobalVars GlobalVars = *(CGlobalVars*)(offsets_modules::module_base + offsets::global_vars);
-
-			
-		}
+	NTSTATUS WINAPI SmoothAim(CLocalEntity LocalEntity, UserCmd_t* pCmd) 
+	{
+		if (!LocalEntity.Entity)
+			return STATUS_ERROR;
 
 		return STATUS_SUCCESS;
 	}

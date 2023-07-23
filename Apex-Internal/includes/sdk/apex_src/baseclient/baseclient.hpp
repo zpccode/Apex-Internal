@@ -33,4 +33,4 @@ public:
 		SignonState sig_state = {};
 		return sig_state == SignonState::Full && level_buffer(base, offset, offset_two) != '\0' && !!strcmp((const char*)level_buffer(base, offset, offset_two), "mp_lobby");
 	}
-};
+}; IBaseClient* pIBaseClient;

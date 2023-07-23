@@ -58,7 +58,6 @@ public:
 	}; NtMemCopy* pNtMemCopy = new NtMemCopy();
 }; Memory* m_pMemory = new Memory();
 
-
 class Thread
 {
 public:

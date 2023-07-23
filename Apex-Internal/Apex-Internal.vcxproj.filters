@@ -266,6 +266,9 @@
     <ClInclude Include="includes\modules\windows\windows_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="includes\features\Misc\Misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="includes\modules\spoofer\spoof.asm">

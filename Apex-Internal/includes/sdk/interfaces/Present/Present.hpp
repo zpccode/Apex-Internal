@@ -63,7 +63,7 @@ extern "C" { namespace present
 
 		if (visuals::render_radar_option) { pVisuals->RenderRadar(); }
 
-		if (visuals::render_frame_window) { pVisuals->RenderFPSWindow(); }
+		if (misc::render_frame_window) { pVisuals->RenderFPSWindow(); }
 
 		if (pOverlay->render_cursor || pOverlay->capture_cursor) { Cursor::init_hook(); }
 		else { Cursor::remove_hook(); }

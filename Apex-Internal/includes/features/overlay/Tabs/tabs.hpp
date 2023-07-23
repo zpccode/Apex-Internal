@@ -163,9 +163,6 @@ public:
 		pImGuiFeatures->CheckBox(skCrypt("Enable Weapon Chams").decrypt(), &visuals::weapon_chams);
 		pImGuiFeatures->Spacing1();
 
-		pImGuiFeatures->CheckBox(skCrypt("FPS Window").decrypt(), &visuals::render_frame_window);
-		pImGuiFeatures->Spacing1();
-
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);
 	}
@@ -202,6 +199,9 @@ public:
 		ImGui::Text(skCrypt("Misc Settings").decrypt());
 		pImGuiFeatures->Separator();
 
+		pImGuiFeatures->CheckBox(__("Unlock All"), &misc::unlock_all);
+
+
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);
 	}
@@ -213,6 +213,8 @@ public:
 		ImGui::SetCursorPosX(115);
 		ImGui::Text(skCrypt("Misc Extra Settings").decrypt());
 		pImGuiFeatures->Separator();
+
+		pImGuiFeatures->CheckBox(__("Fps Window"), &misc::render_frame_window);
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);

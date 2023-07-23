@@ -31,31 +31,44 @@ public:
 	
 	NTSTATUS WINAPI PlayerOutline(CLocalEntity LocalEntity) 
 	{ 
-		if (!visuals::enable_outline)
+		if (!LocalEntity.Entity)
 			return STATUS_ERROR;
 
-		uintptr_t local_team = LocalEntity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-		CBaseEntity BaseEntity = CBaseEntity();
+		DWORD64 LocalTeam = *(DWORD64*)(LocalEntity.Entity + Classes::CBaseEntity::m_iTeamNum);
+		CBaseEntity Entity = CBaseEntity();
 		
 		for (int i = 0; i < 100; i++)
 		{
-			uintptr_t entity_from_index = BaseEntity.GetEntity(i);
+			DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base, offsets::cl_entitylist, i, 32);
+			ColorRGB Color = { 155,155,155 };
 			
-			if (!entity_from_index || entity_from_index == LocalEntity.Entity || !LocalEntity.Entity)
+			DWORD64 EntityTeam = Entity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
+			if (EntityTeam == LocalTeam)
 				continue;
-			
-			BaseEntity.EnableGlow(offsets::glow_type, offsets::glow_color, offsets::glow_enable,
-				255, 255, 255, 255);
+
+			*(GlowMode*)(Entity.Entity + offsets::glow_type) = Entity.GlowStyle;
+			*(ColorRGB*)(Entity.Entity + offsets::glow_color) = Color;
+			*(DWORD64*)(Entity.Entity + offsets::glow_enable) = 1;
 		}
 
 		return STATUS_SUCCESS; 
 	}
 	
-	NTSTATUS WINAPI UnlockAll(CLocalEntity LocalEntity)
+	NTSTATUS WINAPI IteamOutline(CLocalEntity LocalEntity)
 	{
-		uintptr_t unlock_all = (uintptr_t)pScanner.PatternScan((LPVOID)offsets_modules::module_base
-			, "48 8D 05 ? ? ? ? 48 89 05 ? ? ? ?") + 3;
-		*reinterpret_cast<short*>(unlock_all) = 1;
+		if (!LocalEntity.Entity)
+			return STATUS_ERROR;
+
+		CBaseEntity Entity;
+		for (int i = 0; i < 12000; i++)
+		{
+			DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base,
+				offsets::cl_entitylist, i, 32);
+			if (!BaseEntity || Entity.Entity == LocalEntity.Entity)
+				continue;
+			*(DWORD64*)(BaseEntity + 0x2C0) = 0x51408A89;
+		}
+
 		return STATUS_SUCCESS;
 	}
 
@@ -97,28 +110,22 @@ public:
 			CBaseEntity BaseEnt = CBaseEntity();
 
 			if (!LocalEnt.Entity)
-				return STATUS_ERROR;;
+				return STATUS_ERROR;
 
-			for (int i = 0; i < 200; i++)
+			DWORD64 LocalTeam = *(DWORD64*)(LocalEnt.Entity + Classes::CBaseEntity::m_iTeamNum);
+			CBaseEntity Entity = CBaseEntity();
+
+			for (int i = 0; i < 100; i++)
 			{
-				uintptr_t entity = BaseEnt.GetEntity(i);
-				
-				if (!entity || entity == LocalEnt.Entity)
+				DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base, offsets::cl_entitylist, i, 32);
+				if (!BaseEntity || Entity.Entity == LocalEnt.Entity)
 					continue;
 
-				uintptr_t local_team = LocalEnt.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-				uintptr_t enemy_team = BaseEnt.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			
-				if (enemy_team == local_team)
+				DWORD64 EntityTeam = Entity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
+				if (EntityTeam == LocalTeam)
 					continue;
 
-				uintptr_t isEntityAlive = BaseEnt.isAlive(Classes::CPlayer::m_iHealth);
-				uintptr_t isLocalEntityAlive = LocalEnt.IsAlive(Classes::CPlayer::m_iHealth);
-
-				if (!isEntityAlive || !isLocalEntityAlive)
-					continue;
-
-				// put code here
+				windowDrawList->AddCircleFilled(ImVec2(pos.x + (siz.x / 2), pos.y + 0), 180, GetU32(155, 155, 155, 255), 0);
 			}
 
 			pImGuiWindow->EndWindow();
@@ -144,7 +151,7 @@ public:
 		
 		if (visuals::enable_outline) { pVisualFeatures->PlayerOutline(LocalEntity); }
 		
-		if (visuals::item_esp) { pVisualFeatures->UnlockAll(LocalEntity); }
+		if (visuals::item_esp) { pVisualFeatures->IteamOutline(LocalEntity); }
 		if (visuals::weapon_chams) { pVisualFeatures->WeaponChams(LocalEntity); }
 		
 		return STATUS_SUCCESS;

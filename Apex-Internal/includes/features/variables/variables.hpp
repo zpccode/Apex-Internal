@@ -13,6 +13,8 @@ namespace aimbot
 	bool npcs = false;
 	bool no_recoil = false;
 
+	float aim_dist = 5000;
+
 	namespace hitboxes
 	{
 		static int player_hitbox_items = 0;
@@ -80,6 +82,7 @@ namespace visuals
 
 namespace misc
 {
-
+	bool unlock_all = false;
+	bool render_frame_window = false;
 }
 

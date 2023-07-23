@@ -1,4 +1,13 @@
 #include"../engine/engine.hpp"
+
+enum class buttons
+{
+    IN_JUMP = (1 << 0),
+    IN_GROUNDED = (1 << 1),
+    IN_ATTACK = ( 1 << 2),
+    IN_ATTACK2 = (1 << 3),
+};
+
 struct UserCmd_t
 {
     uintptr_t pVft;                // 0x00

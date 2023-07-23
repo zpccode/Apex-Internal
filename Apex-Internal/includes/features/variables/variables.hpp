@@ -84,5 +84,7 @@ namespace misc
 {
 	bool unlock_all = false;
 	bool render_frame_window = false;
+	bool tap_strafe = false;
+	bool free_cam = false;
 }
 

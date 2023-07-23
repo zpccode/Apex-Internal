@@ -200,7 +200,12 @@ public:
 		pImGuiFeatures->Separator();
 
 		pImGuiFeatures->CheckBox(__("Unlock All"), &misc::unlock_all);
+		pImGuiFeatures->Spacing1();
 
+		pImGuiFeatures->CheckBox(__("Auto Tap Strafe"), &misc::tap_strafe);
+		pImGuiFeatures->Spacing1();
+
+		pImGuiFeatures->CheckBox(__("Free cam"), &misc::free_cam);
 
 		pImGuiChildWindow->EndChildFrame();
 		pImGuiFeatures->PopStyleColor(1);

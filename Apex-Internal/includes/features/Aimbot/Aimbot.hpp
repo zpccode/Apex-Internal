@@ -50,11 +50,10 @@ private:
 		return STATUS_SUCCESS;
 	}
 public:
-	NTSTATUS WINAPI Initialize()
+	NTSTATUS WINAPI Initialize(CLocalEntity LocalEntity, UserCmd_t* pCmd)
 	{
-		CLocalEntity LocalEntity = CLocalEntity(offsets_modules::module_base, offsets::local_player);
-		this->InitAimbot(LocalEntity, nullptr);
-		this->NoRecoil(LocalEntity, nullptr);
+		this->InitAimbot(LocalEntity, pCmd);
+		this->NoRecoil(LocalEntity, pCmd);
 		return STATUS_SUCCESS;
 	}
 }; CAimbot* pAimbot = new CAimbot();

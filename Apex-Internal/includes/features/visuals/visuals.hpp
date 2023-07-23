@@ -158,9 +158,9 @@ public:
 	}
 
 public:	
-	NTSTATUS WINAPI Initialize()
+	NTSTATUS WINAPI Initialize(CLocalEntity LocalEntity)
 	{
-		CLocalEntity LocalEntity = CLocalEntity(offsets_modules::module_base, offsets::local_player);
+		//CLocalEntity LocalEntity = CLocalEntity(offsets_modules::module_base, offsets::local_player);
 		this->InitVisuals(LocalEntity);
 		return STATUS_SUCCESS;
 	}

@@ -1,9 +1,33 @@
 #include"../includes/includes.hpp"
 
+class InitModules
+{
+public:
+	NTSTATUS WINAPI GetGlobals(HMODULE hModule)
+	{
+		global::g_hInst = hModule;
+		global::g_hGameImage = (DWORD64)m_pMemory->pNTModules->NtGetModuleHandleExW(NULL);
+		global::g_dwModuleSize = m_pMemory->pNtImages->NtGetModuleSize((DWORD64)hModule);
+		return TRUE;
+	}
+
+	NTSTATUS WINAPI CallThreads()
+	{
+		pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)present::hook_present, 0, 0);
+		pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)FeaturesThread, 0, 0);
+		return TRUE;
+	}
+}; InitModules pInitModules ;
+
 __declspec() attach* attach::init_thread(HMODULE hModule, void* hBuffer)
 {
-	pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)present::hook_present, 0, 0);
-	pThread->pNtCreateThread->NtCreateThreadEx((LPTHREAD_START_ROUTINE)FeaturesThread, 0, 0);
+	while(!m_pMemory->pNTModules->NtGetModuleHandleExW(__("r5apex.exe")))
+		spoof_call::SleepThread(420);
+
+	pInitModules.GetGlobals(hModule);
+	//pDumper.Initialize();
+	pInitModules.CallThreads();
+
 	return nullptr;
 }
 

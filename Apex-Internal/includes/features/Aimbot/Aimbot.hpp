@@ -46,7 +46,9 @@ private:
 			Vector3 NewAngle = ViewAngles + oPunch - AimPunch;
 			LocalEnity.SetViewAngles(Classes::CPlayer::m_view_angles, NewAngle);
 		}
+
 		oPunch = AimPunch;
+		
 		return STATUS_SUCCESS;
 	}
 public:

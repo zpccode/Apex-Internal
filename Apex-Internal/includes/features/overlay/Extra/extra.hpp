@@ -40,7 +40,7 @@ class ImGuiWindowEx
 public:
 	__forceinline void ProcessBackground() {
 		auto background = ImGui::GetBackgroundDrawList();
-		background->AddRectFilled(ImVec2{ 0,0 }, ImVec2(ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y), ImColor(15, 15, 15, 150));
+		background->AddRectFilled(ImVec2{ 0,0 }, ImVec2(ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y), ImColor(15, 15, 15, 200));
 	}
 	__forceinline void SetSize(ImVec2 Size) {
 		pImGuiFeatures->WindowSize(Size);

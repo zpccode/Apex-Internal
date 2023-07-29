@@ -25,36 +25,42 @@ public:
 		return STATUS_SUCCESS;
 	}
 	
-	NTSTATUS WINAPI PlayerBox(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
-	
-	NTSTATUS WINAPI PlayerName(CLocalEntity LocalEntity) { return STATUS_SUCCESS; }
-	
-	NTSTATUS WINAPI PlayerOutline(CLocalEntity LocalEntity) 
+	NTSTATUS WINAPI PlayerBox(CLocalEntity LocalEntity) 
 	{ 
-		if (!LocalEntity.Entity)
-			return STATUS_ERROR;
-
-		DWORD64 LocalTeam = *(DWORD64*)(LocalEntity.Entity + Classes::CBaseEntity::m_iTeamNum);
 		CBaseEntity Entity = CBaseEntity();
-		
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 200; i++)
 		{
-			DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base, offsets::cl_entitylist, i, 32);
-			ColorRGB Color = { 155,155,155 };
-			
-			DWORD64 EntityTeam = Entity.m_iTeamNum(Classes::CBaseEntity::m_iTeamNum);
-			if (EntityTeam == LocalTeam)
+			DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base,
+				offsets::cl_entitylist, i, 32);
+			if (!BaseEntity || BaseEntity == LocalEntity.Entity || !LocalEntity.Entity)
 				continue;
 
-			*(GlowMode*)(Entity.Entity + offsets::glow_type) = Entity.GlowStyle;
-			*(ColorRGB*)(Entity.Entity + offsets::glow_color) = Color;
-			*(DWORD64*)(Entity.Entity + offsets::glow_enable) = 1;
 		}
-
 		return STATUS_SUCCESS; 
 	}
 	
-	NTSTATUS WINAPI IteamOutline(CLocalEntity LocalEntity)
+	NTSTATUS WINAPI PlayerName(CLocalEntity LocalEntity) 
+	{ 
+		return STATUS_SUCCESS; 
+	}
+	
+	NTSTATUS WINAPI PlayerOutline(CLocalEntity LocalEntity)
+	{
+		CBaseEntity Entity = CBaseEntity();
+		for (int i = 0; i < 200; i++)
+		{
+			DWORD64 BaseEntity = Entity.GetEntityIndex(offsets_modules::module_base,
+				offsets::cl_entitylist, i, 32);
+			
+			if (!BaseEntity || BaseEntity == LocalEntity.Entity || !LocalEntity.Entity)
+				continue;
+
+			*(bool*)(BaseEntity + offsets::glow_enable) = 1;
+		}
+		return STATUS_SUCCESS; 
+	}
+	
+	NTSTATUS WINAPI ItemOutline(CLocalEntity LocalEntity)
 	{
 		if (!LocalEntity.Entity)
 			return STATUS_ERROR;
@@ -157,11 +163,18 @@ public:
 		return STATUS_SUCCESS;
 	}
 
+	NTSTATUS WINAPI ModifyFov()
+	{
+		auto fov_offset = pDumperPatterns->FindPattern("48 8D 05 ? ? ? ? 48 89 05 ? ? ? ? ");
+		float result = *(float*)fov_offset;
+		result = visuals::view_fov;
+	}
+
 public:	
 	NTSTATUS WINAPI Initialize(CLocalEntity LocalEntity)
 	{
-		//CLocalEntity LocalEntity = CLocalEntity(offsets_modules::module_base, offsets::local_player);
 		this->InitVisuals(LocalEntity);
+		this->ModifyFov();
 		return STATUS_SUCCESS;
 	}
 }; Visuals* pVisuals;

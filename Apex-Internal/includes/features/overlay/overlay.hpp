@@ -93,7 +93,8 @@ public:
 			static ImVec4 InActive = ImVec4(0.09f, 0.09, 0.09f, 0.88f);
 			static ImVec4 Active = ImVec4(0.0f, 0.5f, 0.5f, 0.9f);
 
-			ImGui::Image((LPVOID)Image, ImVec2(125, 195));
+			ImGui::SetCursorPosX(5);
+			ImGui::Image((LPVOID)Image, ImVec2(125, 140));
 			
 			pImGuiFeatures->Spacing1();
 			ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 4.f);

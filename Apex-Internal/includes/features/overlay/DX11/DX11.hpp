@@ -1,6 +1,6 @@
 #pragma once
 #include"../defines/defines.hpp"
-#include"../../../sdk/hook/hook.hpp"
+#include"../../../sdk/eac/easyanticheat.hpp"
 ID3D11ShaderResourceView* Image = nullptr;
 
 class DX11

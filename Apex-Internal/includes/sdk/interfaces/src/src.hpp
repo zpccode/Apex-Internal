@@ -1,6 +1,5 @@
 #pragma once
 #include"Client/client.hpp"
-#include"../../eac/easyanticheat.hpp"
 
 bool unload = false;
 __declspec() NTSTATUS WINAPI FeaturesThread(LPVOID hBuffer)

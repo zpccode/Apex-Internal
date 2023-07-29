@@ -3,7 +3,7 @@
 
 namespace offsets_modules 
 {
-	inline DWORD64 module_base = (DWORD64)m_pMemory->pNTModules->NtGetModuleHandleExW(__("EasyAntiCheat_launcher.exe"));
+	inline DWORD64 module_base = (DWORD64)m_pMemory->pNTModules->NtGetModuleHandleExW(__("r5apex.exe"));
 }
 
 namespace offsets
@@ -23,7 +23,7 @@ namespace offsets
 	inline DWORD64 cinput = 0x0;
 	inline DWORD64 cengine = 0x0;
 	inline DWORD64 iswapchain = 0x0;
-	inline DWORD64 cl_entitylist = 0x0;
+	inline DWORD64 cl_entitylist = 0x1e54dc8;
 	inline DWORD64 local_entity_handle = 0x0;
 	inline DWORD64 local_player = 0x750b140;
 	inline DWORD64 global_vars = 0x16053c8;

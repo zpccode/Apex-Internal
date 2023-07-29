@@ -17,17 +17,17 @@ extern "C" {namespace Cursor
 
 	NTSTATUS WINAPI init_hook()
 	{
-		if (NTMakeHook::NTCreateHook(&show_cursor, &cursor_hk, reinterpret_cast<LPVOID*>(&pD3D11->oCursor)) != MH_OK)
+		if (NTMakeHook::NTCreateHook(&SetCursorPos, &cursor_hk, reinterpret_cast<LPVOID*>(&pD3D11->oCursor)) != MH_OK)
 			return STATUS_ERROR;
-		if (NTMakeHook::NTEnableHook(&show_cursor) != MH_OK)
+		if (NTMakeHook::NTEnableHook(&SetCursorPos) != MH_OK)
 			return STATUS_ERROR;
 		return STATUS_SUCCESS;
 	}
 
 	NTSTATUS WINAPI remove_hook()
 	{
-		NTMakeHook::NTDisableHook(&show_cursor);
-		NTMakeHook::NTRemoveHook(&show_cursor);
+		NTMakeHook::NTDisableHook(&SetCursorPos);
+		NTMakeHook::NTRemoveHook(&SetCursorPos);
 		return STATUS_SUCCESS;
 	}
 }}

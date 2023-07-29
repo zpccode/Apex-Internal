@@ -269,6 +269,9 @@
     <ClInclude Include="includes\features\Misc\Misc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="includes\sdk\utils\dumper\dumper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="includes\modules\spoofer\spoof.asm">

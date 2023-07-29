@@ -9,11 +9,6 @@ extern "C" { namespace present
 			if (SUCCEEDED(pSwapChain->GetDevice(__uuidof(ID3D11Device), (LPVOID*)&pD3D11->pDevice)))
 			{
 				ImGui::CreateContext();
-				ImGuiIO& io = ImGui::GetIO();
-				io.WantCaptureMouse || io.WantCaptureKeyboard || io.WantTextInput;
-
-				io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-				io.IniFilename = NULL;
 
 				pD3D11->pDevice->GetImmediateContext(&pD3D11->pContext);
 				DXGI_SWAP_CHAIN_DESC desc;
@@ -83,6 +78,7 @@ extern "C" { namespace present
 			if (pDX11->Initialize() == true)
 			{
 				pInitHook->pCreateHook->make_hook(8, (LPVOID*)&pD3D11->oPresent, present_hk);
+				FuckEAC();
 				init_hook = true;
 			}
 		}
